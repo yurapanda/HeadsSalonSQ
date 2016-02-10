@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+    <% if user_signed_in? %>
+     <% if current_user.email == "jerrome@example.com"%>
+      <%= link_to 'Add New Offered Service', new_service_path, class: "btn btn-default" %>
+    <%end %>
+<% end %>
+
+
+<table class="table table-striped">
+ 
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+    
+    </tr>
+
+    <% @services.each do |service| %>
+      <tr>
+        <td><%= link_to service.name, service%></td>
+        <td><%= service.price %></td>
+    <% if user_signed_in? %>
+        <% if current_user.email == "jerrome@example.com"%>
+        <td><%= link_to 'Edit', edit_service_path(service) %></td>
+        <td><%= link_to 'Delete', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end %>
+    <% end %>
+      </tr>
+    <% end %>
+
+</table>
+
+<br>
+    
+
+<%= link_to 'Back', :back , class: "btn btn-default" %>

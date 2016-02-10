@@ -1,0 +1,25 @@
+<%= simple_form_for @service, html: { multipart: true} do |f| %>
+  <% if @service.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+   <h2>service <unsuccessful></unsuccessful>, 
+     there is/are <%= pluralize(@service.errors.count, "error") %>.</h2>
+     prevented this service from saving
+
+       <% @service.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %> 
+
+<div class="form-group">
+<%= f.input :name, input_html: {class: 'form-control'} %>
+</div>
+<div class="form-group">
+
+<%= f.input :price, label: "Price",input_html: {class: 'col-md-9'} %>
+
+<%= f.button :submit, class: 'btn btn-primary' %>
+</div>
+<% end %>

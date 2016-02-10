@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+    <% if user_signed_in? %>
+     <% if current_user.email == "jerrome@example.com"%>
+      <%= link_to 'Add New Salon Employee', new_staff_path, class: "btn btn-default" %>
+      <br>
+      <br>
+    <%end %>
+<% end %>
+
+
+
+
+    
+  <div class="row">
+
+    <% @staffs.each do |staff| %>
+      <div class="col-sm-6 col-md-5 col-lg-4">
+      <div class="panel panel-default">
+      <div class="panel-heading">
+       <center> <%= image_tag staff.profile_picture.url(:medium), class: "image-rounded"%></center>
+        </div>
+      <div class="panel-body">
+         <h3><center> <%= link_to staff.name, staff, class: "caption"%></center></h3>
+         <hr>
+         <p><center> <%= staff.expertise %></center></p>
+         <hr>
+         <p><center> <%= staff.description %></center></p>
+
+            <% if user_signed_in? %>
+            <hr>
+                <% if current_user.email == "jerrome@example.com"%>
+                <%= link_to 'Edit', edit_staff_path(staff), class: "btn btn-default" %>
+                <%= link_to 'Delete', staff, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+                <br>
+                <%end %>
+            <% end %>
+       </div>
+
+ </div>
+
+</div>
+    <% end %>
+
+
+<br>
+    </p></div>
+
+<%= link_to 'Back', :back , class: "btn btn-default" %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+ <div class="well well-lg">
+ <div class="row">
+ 	<div class="col-md-4 col-sm-4">
+ 	<%= image_tag @staff.profile_picture.url(:medium), class: "image-rounded" %>
+	</div>
+	<div class="col-md-8 col-sm-8">
+  <h4><strong>Name:</strong>		<%= @staff.name %></h4>
+  <h4><strong>Expertise:</strong>	<em><%= @staff.expertise %></em></h4>
+  <h4><strong>Description:</strong>	<%= @staff.description %></h4>
+  </div>
+  </div>
+  </div>
+
+<% if user_signed_in? %>
+   <% if current_user.email == "jerrome@example.com"%>
+<%= link_to 'Edit', edit_staff_path(@staff), class: "btn btn-default" %> |
+<%= link_to 'Back', staffs_path, class: "btn btn-default" %>
+<% end %>
+<% end %>

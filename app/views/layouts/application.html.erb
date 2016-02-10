@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HeadsSalon</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="../js/jssor.slider.mini.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Google Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</script>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+<% if user_signed_in? %>
+	  <%= render 'layouts/header' %>
+
+	  
+
+	       <div class="container">
+	       <div class="row">
+		    <p id="notice"><%= notice %></p>
+	     		  
+						<%= yield %>
+				  
+			    </div>
+			</div>
+			
+			</div>
+	
+	<% else %>
+	  <%= render 'layouts/header' %>
+
+	  </div><div class="container">
+	
+	       
+	    
+		   
+				<%= yield %>
+				</div>
+			
+	<% end %>
+</body>
+</html>
