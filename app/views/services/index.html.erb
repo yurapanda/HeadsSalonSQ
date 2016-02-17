@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-    <% if user_signed_in? %>
+ <% if user_signed_in? %>
      <% if current_user.email == "jerrome@example.com"%>
       <%= link_to 'Add New Offered Service', new_service_path, class: "btn btn-default" %>
     <%end %>

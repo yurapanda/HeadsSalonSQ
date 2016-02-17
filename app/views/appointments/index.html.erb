@@ -1,52 +1,50 @@
 <section id="Calendar">
-<div class="well well-lg">
+
+  <div class="well well-lg">
     <h3> Calendar </h3>
 
     <% start_date = params.fetch(:start_date, Date.today).to_date %>
     <% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a %>
-    <%= link_to "Previous", start_date: date_range.first - 1.day, class: "btn btn-default" %>
-
-    <%= link_to "Next", start_date: date_range.last + 1.day, class: "btn btn-primary", class: "btn btn-default" %>
-    <h3><%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %></h3>
-    <table class="table table-hover">
-      <thread>
-        <tr>  
-          <% date_range.slice(0, 7 ).each do |day| %>
-            <th class="week_day"> <%= I18n.t("date.day_names")[day.wday]%></th>
-          <% end %>
-        </tr>
-      </thread>
-      <tbody>
-        <%= date_range.each_slice(7) do |week| %>
-          <tr>
-          <% week.each do |day| %>
-          <td class="date_number"><%= day.strftime("%B %d") %></td>
-          <% end %>
-        </tr>
-        <% end %>
-      </tbody>
-      </table>
-    </div>
+    <%= link_to "Previous Month", start_date: date_range.first - 1.day, class: "btn btn-default" %> ||
+    <%= link_to "Next Month", start_date: date_range.last + 1.day, class: "btn btn-primary", class: "btn btn-default" %>
+        <h3><%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %></h3>
+        <table class="table table-hover"> <% if user_signed_in? %>
+     
+      <%= link_to 'New Appointment', new_appointment_path, class: "btn btn-default" %>
+    <%end %>
+          <thread>
+            <tr>  
+              <% date_range.slice(0, 7 ).each do |day| %>
+                <th class="week_day"> <%= I18n.t("date.day_names")[day.wday]%></th>
+              <% end %>
+            </tr>
+          </thread>
+          <tbody>
+            <% date_range.each_slice(7) do |week| %>
+              <tr>
+              <% week.each do |day| %>
+               <td class="date_number">
+                <%= day.strftime("%B %d") %>
+                    <!--matching of the appointment date and the calendar-->
+                    <% if user_signed_in? %>
+                     
+                            <% @appointments.select{ |m| m.date == day && current_user.email == m.user.email }.each do |appointment| %>
+                              <div id="appointmentlinks"><%= link_to appointment.user.first_name, appointment%> </div>
+                            <% end %>
+                     
+                    <% end %>
+               </td>
+              <% end %>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+   </div>
 </section>
 
+<!-- listing of appointments -->
+<!-- commenting this 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <% if user_signed_in? %>
-     
-      <%= link_to 'Add New Offered appointment', new_appointment_path, class: "btn btn-default" %>
-    <%end %>
 <br><br>
 
 <table class="table table-striped">
@@ -78,4 +76,4 @@
 <br>
     
 
-<%= link_to 'Back', :back , class: "btn btn-default" %>
+<%= link_to 'Back', :back , class: "btn btn-default" %> -->
