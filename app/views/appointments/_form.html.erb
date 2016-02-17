@@ -1,0 +1,26 @@
+<%= simple_form_for @appointment, html: { multipart: true} do |f| %>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+   <h2>appointment <unsuccessful></unsuccessful>, 
+     there is/are <%= pluralize(@appointment.errors.count, "error") %>.</h2>
+     prevented this appointment from saving
+
+       <% @appointment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %> 
+
+<div class="input-group date">
+
+<%= f.input :date, label: 'Date', input_html: {class: 'form-control'} %>
+
+
+<%= f.input :time, label: 'Time', input_html: {class: 'col-md-9'} %>
+</div>
+<br>
+<%= f.button :submit, class: 'btn btn-primary' %>
+
+<% end %>

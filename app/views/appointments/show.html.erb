@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @appointment.date.strftime("%B %d") %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @appointment.time.strftime("%I %p") %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @appointment.user.first_name %> <%= @appointment.user.last_name %>
+</p>
+
+<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<%= link_to 'Back', appointments_path %>

@@ -1,0 +1,81 @@
+<section id="Calendar">
+<div class="well well-lg">
+    <h3> Calendar </h3>
+
+    <% start_date = params.fetch(:start_date, Date.today).to_date %>
+    <% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a %>
+    <%= link_to "Previous", start_date: date_range.first - 1.day, class: "btn btn-default" %>
+
+    <%= link_to "Next", start_date: date_range.last + 1.day, class: "btn btn-primary", class: "btn btn-default" %>
+    <h3><%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %></h3>
+    <table class="table table-hover">
+      <thread>
+        <tr>  
+          <% date_range.slice(0, 7 ).each do |day| %>
+            <th class="week_day"> <%= I18n.t("date.day_names")[day.wday]%></th>
+          <% end %>
+        </tr>
+      </thread>
+      <tbody>
+        <%= date_range.each_slice(7) do |week| %>
+          <tr>
+          <% week.each do |day| %>
+          <td class="date_number"><%= day.strftime("%B %d") %></td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+      </table>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <% if user_signed_in? %>
+     
+      <%= link_to 'Add New Offered appointment', new_appointment_path, class: "btn btn-default" %>
+    <%end %>
+<br><br>
+
+<table class="table table-striped">
+ 
+    <tr>
+      <th>Name</th>
+      <th>Scheduled Time</th>
+      <th>Customer Name </th>
+    
+    </tr>
+
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= link_to appointment.date.strftime("%B %d, %Y"), appointment%></td>
+        <td><%= appointment.time.strftime("%I:%M %P") %></td>
+        <td><%= appointment.user.email %></td>
+  
+    <% if user_signed_in? %>
+        <% if current_user.email == "jerrome@example.com"%>
+        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+        <td><%= link_to 'Delete', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end %>
+    <% end %>
+      </tr>
+    <% end %>
+
+</table>
+
+<br>
+    
+
+<%= link_to 'Back', :back , class: "btn btn-default" %>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
  
+  resources :appointments
+  resources :appointments
+  resources :appointments
+  resources :appointments
   resources :staffs
   resources :staffs
   devise_for :users

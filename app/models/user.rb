@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   validates :contactnumber, 	presence: true, length: {in: 7..11}, numericality: {greater_than_or_equal_to: 0}
   
   has_many :services
+  has_many :appointments
 end
