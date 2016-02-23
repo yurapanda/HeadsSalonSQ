@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>HeadsSalon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script type="text/javascript" src="../js/jssor.slider.mini.js"></script>
@@ -31,10 +32,10 @@
 	   		 	<p class="alert"><%= alert %></p>
 	   		</div>
 	  	<% end %>	
-	  <%= render 'layouts/header' %>
-	       <div class="container">
+	  
+	     
 	       		<%= yield %>
-	       </div>
+	     
 
 			
 

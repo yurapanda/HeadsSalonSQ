@@ -1,21 +1,9 @@
 // Place all the styles related to the Appointments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-th.week_day {
-    font-size: 2rem;
-    letter-spacing: .3rem;
-   font-family: 'PT Serif', serif;
-   font-style: italic;
-}
+
 td.date_number {
     height: 10rem;
     font-size: 1rem;
 }
 
-div#appointmentlinks {
-    font-size: 1.7rem;
-    a{
-    	color: green;
-    	
-    }
-}

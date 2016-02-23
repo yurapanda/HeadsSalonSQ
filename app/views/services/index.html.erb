@@ -8,15 +8,17 @@
 <table class="table table-striped">
  
     <tr>
+      <th> </th>
       <th>Name</th>
       <th>Price</th>
-    
+      
     </tr>
 
     <% @services.each do |service| %>
       <tr>
+        <td> <%= image_tag service.image.url(:thumb), class: "image-rounded"%></td>
         <td><%= link_to service.name, service%></td>
-        <td><%= service.price %></td>
+        <td>Php <%= service.price %>0</td>
     <% if user_signed_in? %>
         <% if current_user.email == "jerrome@example.com"%>
         <td><%= link_to 'Edit', edit_service_path(service) %></td>

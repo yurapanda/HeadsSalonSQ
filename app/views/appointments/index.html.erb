@@ -1,6 +1,6 @@
+
 <section id="Calendar">
 
-  <div class="well well-lg">
     <h3> Calendar </h3>
 
     <% start_date = params.fetch(:start_date, Date.today).to_date %>
@@ -39,7 +39,6 @@
             <% end %>
           </tbody>
         </table>
-   </div>
 </section>
 
 <!-- listing of appointments -->
@@ -77,3 +76,4 @@
     
 
 <%= link_to 'Back', :back , class: "btn btn-default" %> -->
+

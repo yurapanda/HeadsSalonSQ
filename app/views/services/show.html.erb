@@ -1,13 +1,18 @@
-<div class="row">
-	<div class="">
-		<strong>Service:</strong>
-	  <%= @service.name %>
-	  <strong>Price:</strong>
-	  <%= @service.price %>
-	</p>
+<div class="well well-lg">
+	<div class="row">
+		<div class="col-md-4 col-sm-4">
+		<%= image_tag @service.image.url(:medium), class: "image-rounded" %>
+		</div>
+			<div class="col-md-offset-5 col-sm-offset-5">
+				<h4><strong>Name:</strong>		<%= @service.name %></h4>
+				<h4><strong>Price:</strong>	<em>Php <%= @service.price %>0</em></h4>
+			
+			</div>
+	</div>
+
 	<% if user_signed_in? %>
-	   <% if current_user.email == "jerrome@example.com"%>
-	<%= link_to 'Edit', edit_service_path(@service), class: "btn btn-default" %> |
-	<%= link_to 'Back', services_path, class: "btn btn-default" %>
+		<% if current_user.email == "jerrome@example.com"%>
+			<%= link_to 'Edit', edit_service_path(@service), class: "btn btn-default" %> |
+			<%= link_to 'Back', services_path, class: "btn btn-default" %>
 	<% end %>
 <% end %>
