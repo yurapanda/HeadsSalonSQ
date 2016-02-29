@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
- 
+
+  root "home#index"
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get 'home/index'
+ 
 
   resources :products
   resources :appointments
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :services
   
-  root "home#index"
+  
 
 
 end
