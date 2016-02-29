@@ -17,6 +17,13 @@
   <strong>Contact Number:</strong>
   <%= @appointment.user.contactnumber %>
 </p>
-<%= link_to 'Reschedule', edit_appointment_path(@appointment) %> |
-<%= link_to 'Back', appointments_path %>
+<% if can? :update, @appointment %>
+	<%= link_to 'Reschedule', edit_appointment_path(@appointment) %> |
+<% end %>
+
+<% if can? :destroy, @appointment %>
+	<%= link_to 'Delete', @appointment, method: :delete, data: {confirm: "Are you sure?"} %> |
+<% end %>
+
+	<%= link_to 'Back', appointments_path %>
 </div>

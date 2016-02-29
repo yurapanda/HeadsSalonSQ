@@ -12,22 +12,25 @@ class AppointmentsController < ApplicationController
   # GET /appointments/1.json
   def show
      @user = current_user
+     authorize! :update, @appointment
   end
 
   # GET /appointments/new
   def new
     @appointment = current_user.appointments.build
+    authorize! :new, @appointment
   end
 
   # GET /appointments/1/edit
   def edit
+    authorize! :edit, @appointment
   end
 
   # POST /appointments
   # POST /appointments.json
   def create
     @appointment = current_user.appointments.build(appointment_params)
-
+    authorize! :create, @appointment
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
@@ -42,6 +45,7 @@ class AppointmentsController < ApplicationController
   # PATCH/PUT /appointments/1
   # PATCH/PUT /appointments/1.json
   def update
+    authorize! :update, @appointment
     respond_to do |format|
       if @appointment.update(appointment_params)
         format.html { redirect_to @appointment, notice: 'Appointment was successfully updated.' }
@@ -56,6 +60,7 @@ class AppointmentsController < ApplicationController
   # DELETE /appointments/1
   # DELETE /appointments/1.json
   def destroy
+    authorize! :destroy, @appointment
     @appointment.destroy
     respond_to do |format|
       format.html { redirect_to appointments_url, notice: 'Appointment was successfully destroyed.' }

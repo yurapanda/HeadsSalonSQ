@@ -1,12 +1,12 @@
 
 <div class="container">
   <h2> Our Staff</h2>
-  <% if user_signed_in? %>
-       <% if current_user.email == "jerrome@example.com"%>
+  <% if can? :create, @staff %>
+   
         <%= link_to 'Add New Salon Employee', new_staff_path, class: "btn btn-default" %>
         <br>
         <br>
-      <%end %>
+  
   <% end %>
 
 
@@ -29,14 +29,16 @@
                  <hr>
                  <p><center> <%= staff.description %></center></p>
 
-                    <% if user_signed_in? %>
+                  
                     <hr>
-                        <% if current_user.email == "jerrome@example.com"%>
-                        <%= link_to 'Edit', edit_staff_path(staff), class: "btn btn-default" %>
-                        <%= link_to 'Delete', staff, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+                        <% if can? :update, staff %>
+                          <%= link_to 'Edit', edit_staff_path(staff), class: "btn btn-default" %>
+                        <% end %>
+                        <% if can? :destroy, staff %>
+                          <%= link_to 'Delete', staff, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
                         <br>
                         <%end %>
-                    <% end %>
+                   
              </div>
         </div>
       </div>

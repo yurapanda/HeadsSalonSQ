@@ -11,10 +11,9 @@
 				</div>
 		</div>
 
-		<% if user_signed_in? %>
-			<% if current_user.email == "jerrome@example.com"%>
+		<% if can? :update, @service %>
 				<%= link_to 'Edit', edit_service_path(@service), class: "btn btn-default" %> |
-				<%= link_to 'Back', services_path, class: "btn btn-default" %>
 		<% end %>
-	<% end %>
+				<%= link_to 'Back', services_path, class: "btn btn-default" %>
+	
 </div>

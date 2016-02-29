@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show, :home]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /services
   # GET /services.json
@@ -22,17 +22,19 @@ class ServicesController < ApplicationController
   # GET /services/new
   def new
     @service = Service.new
+    authorize! :new, @service
   end
 
   # GET /services/1/edit
   def edit
+    authorize! :edit, @service
   end
 
   # POST /services
   # POST /services.json
   def create
     @service = Service.new(service_params)
-
+    authorize! :create, @service
     respond_to do |format|
       if @service.save
         format.html { redirect_to @service, notice: 'Service was successfully created.' }
@@ -47,6 +49,7 @@ class ServicesController < ApplicationController
   # PATCH/PUT /services/1
   # PATCH/PUT /services/1.json
   def update
+    authorize! :update, @service
     respond_to do |format|
       if @service.update(service_params)
         format.html { redirect_to @service, notice: 'Service was successfully updated.' }
@@ -61,6 +64,7 @@ class ServicesController < ApplicationController
   # DELETE /services/1
   # DELETE /services/1.json
   def destroy
+    authorize! :destroy, @service
     @service.destroy
     respond_to do |format|
       format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  get 'home/index'
+
   resources :products
   resources :appointments
   resources :appointments
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :services
   
-  root "services#home"
+  root "home#index"
 
 
 end

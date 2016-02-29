@@ -29,7 +29,7 @@
                     <% if user_signed_in? %>
                      
                             <% @appointments.select{ |m| m.date == day && current_user.email == m.user.email }.each do |appointment| %>
-                              <div id="appointmentlinks"><%= link_to appointment.user.first_name, appointment%> </div>
+                               <div id="appointmentlinks"><%= link_to appointment.user.first_name, appointment%> </div>
                             <% end %>
                       
                     <% end %>

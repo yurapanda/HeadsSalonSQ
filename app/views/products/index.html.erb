@@ -27,11 +27,11 @@
                      <%else %>
               <font color="green">Not Available</font>
               <% end %></td>
-      <% if user_signed_in? %>
-          <% if current_user.email == "jerrome@example.com"%>
+      <% if can? :update, @product %>
           <td><%= link_to 'Edit', edit_product_path(product) %></td>
+      <% end %>
+      <% if can? :destroy, @product %>
           <td><%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <%end %>
       <% end %>
         </tr>
       <% end %>

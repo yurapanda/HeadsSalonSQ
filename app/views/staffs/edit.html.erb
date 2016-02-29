@@ -1,6 +1,4 @@
 <div class="container">
-	<% if user_signed_in? %>
-	   <% if current_user.email == "jerrome@example.com"%>
 
 			<h1>Editing Salon Employee</h1>
 
@@ -8,6 +6,5 @@
 
 			<%= link_to 'Show', @staff %> |
 			<%= link_to 'Back', staffs_path %>
-	<% end %>
-	<% end %>
+
 </div>
