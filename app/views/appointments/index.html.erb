@@ -1,4 +1,4 @@
-
+<div class="container">
 <section id="Calendar">
 
     <h3> Calendar </h3>
@@ -8,10 +8,10 @@
     <%= link_to "Previous Month", start_date: date_range.first - 1.day, class: "btn btn-default" %> ||
     <%= link_to "Next Month", start_date: date_range.last + 1.day, class: "btn btn-primary", class: "btn btn-default" %>
         <h3><%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %></h3>
-        <table class="table table-hover"> <% if user_signed_in? %>
-     
-      <%= link_to 'New Appointment', new_appointment_path, class: "btn btn-default" %>
-    <%end %>
+        <table class="table table-hover"> 
+        
+          <%= link_to 'Book Appointment', new_appointment_path, class: "btn btn-default" %>
+      
           <thread>
             <tr>  
               <% date_range.slice(0, 7 ).each do |day| %>
@@ -77,3 +77,4 @@
 
 <%= link_to 'Back', :back , class: "btn btn-default" %> -->
 
+</div>

@@ -1,3 +1,5 @@
+<div class="container">
+  <h2> Our Services</h2>
  <% if user_signed_in? %>
      <% if current_user.email == "jerrome@example.com"%>
       <%= link_to 'Add New Offered Service', new_service_path, class: "btn btn-default" %>
@@ -34,3 +36,4 @@
     
 
 <%= link_to 'Back', :back , class: "btn btn-default" %>
+</div>

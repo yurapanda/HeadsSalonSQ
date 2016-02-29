@@ -1,15 +1,17 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /appointments
   # GET /appointments.json
   def index
     @appointments = Appointment.all
+     @user = current_user
   end
 
   # GET /appointments/1
   # GET /appointments/1.json
   def show
+     @user = current_user
   end
 
   # GET /appointments/new

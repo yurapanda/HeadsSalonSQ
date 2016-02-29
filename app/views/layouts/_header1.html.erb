@@ -1,0 +1,23 @@
+<header class="cf">
+		<%= link_to "Heads", root_path, id: "logo" %>
+		<nav>
+			<ul>
+				<li><%= link_to "Products", products_path %></li>
+				<li><%= link_to "Services", services_path %></li>
+				<li><%= link_to "Calendar", appointments_path %></li>
+				 
+  
+                      <% if user_signed_in? %>
+                      
+                      <li class="dlink"><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
+                             <em> <% if current_user.email == "jerrome@example.com" %>
+                                  <li class="userlog">Signed in as: Admin</li>
+                              <%else %>
+                               <li class="userlog">Signed in as: <%= current_user.first_name %></li></em>
+                              <% end %>
+                     
+                     
+                      <% end %>
+        
+		</nav>
+</header>

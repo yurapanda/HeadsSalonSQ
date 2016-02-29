@@ -1,10 +1,12 @@
-<% if user_signed_in? %>
-   <% if current_user.email == "jerrome@example.com"%>
-		<h1>Editing Service</h1>
+<div class="container">
+	<% if user_signed_in? %>
+	   <% if current_user.email == "jerrome@example.com"%>
+			<h1>Editing Service</h1>
 
-		<%= render 'form' %>
+			<%= render 'form' %>
 
-		<%= link_to 'Show', @service %> |
-		<%= link_to 'Back', services_path %>
-<% end %>
-<% end %>
+			<%= link_to 'Show', @service %> |
+			<%= link_to 'Back', services_path %>
+	<% end %>
+	<% end %>
+</div>

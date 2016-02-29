@@ -26,3 +26,11 @@ $(document).ready(function(){
 		})
 	}, 2800);
 });
+
+$(document).ready(function(){
+	setTimeout(function(){
+		$('p.alert').fadeOut("slow", function(){
+			$(this).remove();
+		})
+	}, 2800);
+});

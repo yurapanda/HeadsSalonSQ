@@ -1,15 +1,17 @@
 class StaffsController < ApplicationController
   before_action :set_staff, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /staffs
   # GET /staffs.json
   def index
     @staffs = Staff.all
+    @user = current_user
   end
 
   # GET /staffs/1
   # GET /staffs/1.json
   def show
+    @user = current_user
   end
 
   # GET /staffs/new

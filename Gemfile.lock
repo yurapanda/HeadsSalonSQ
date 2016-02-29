@@ -50,6 +50,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (8.2.2)
+    cancan (1.6.10)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -182,6 +183,7 @@ DEPENDENCIES
   bootstrap-datepicker-rails (~> 1.5)
   bootstrap-sass
   byebug
+  cancan
   coffee-rails (~> 4.1.0)
   devise (~> 3.5, >= 3.5.5)
   jbuilder (~> 2.0)

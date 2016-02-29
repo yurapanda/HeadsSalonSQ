@@ -1,4 +1,4 @@
-
+<div class="container">
 <p>
   <strong>Date:</strong>
   <%= @appointment.date.strftime("%B %d") %>
@@ -19,3 +19,4 @@
 </p>
 <%= link_to 'Reschedule', edit_appointment_path(@appointment) %> |
 <%= link_to 'Back', appointments_path %>
+</div>

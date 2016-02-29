@@ -1,42 +1,45 @@
- <% if user_signed_in? %>
-     <% if current_user.email == "jerrome@example.com"%>
-      <%= link_to 'Add New Offered product', new_product_path, class: "btn btn-default" %>
-    <%end %>
-<% end %>
+<div class="container">
+  <h2> Our Products</h2>
+   <% if user_signed_in? %>
+       <% if current_user.email == "jerrome@example.com"%>
+        <%= link_to 'Add New Offered product', new_product_path, class: "btn btn-default" %>
+      <%end %>
+  <% end %>
 
 
-<table class="table table-striped">
- 
-    <tr>
-      <th> </th>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Availability </th>
-      
-    </tr>
-
-    <% @products.each do |product| %>
+  <table class="table table-striped">
+   
       <tr>
-        <td> <%= image_tag product.image.url(:thumb), class: "image-rounded"%></td>
-        <td><%= link_to product.name, product%></td>
-        <td>Php <%= product.price %>0</td>
-        <td><% if product.availability == true %>
-                  <font color="green">Available</font>
-                   <%else %>
-            <font color="green">Not Available</font>
-            <% end %></td>
-    <% if user_signed_in? %>
-        <% if current_user.email == "jerrome@example.com"%>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end %>
-    <% end %>
+        <th> </th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Availability </th>
+        
       </tr>
-    <% end %>
 
-</table>
+      <% @products.each do |product| %>
+        <tr>
+          <td> <%= image_tag product.image.url(:thumb), class: "image-rounded"%></td>
+          <td><%= link_to product.name, product%></td>
+          <td>Php <%= product.price %>0</td>
+          <td><% if product.availability == true %>
+                    <font color="green">Available</font>
+                     <%else %>
+              <font color="green">Not Available</font>
+              <% end %></td>
+      <% if user_signed_in? %>
+          <% if current_user.email == "jerrome@example.com"%>
+          <td><%= link_to 'Edit', edit_product_path(product) %></td>
+          <td><%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%end %>
+      <% end %>
+        </tr>
+      <% end %>
 
-<br>
-    
+  </table>
 
-<%= link_to 'Back', :back , class: "btn btn-default" %>
+  <br>
+      
+
+  <%= link_to 'Back', :back , class: "btn btn-default" %>
+</div>
