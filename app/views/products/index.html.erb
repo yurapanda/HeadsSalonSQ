@@ -1,9 +1,7 @@
 <div class="container">
   <h2> Our Products</h2>
-   <% if user_signed_in? %>
-       <% if current_user.email == "jerrome@example.com"%>
+  <% if can? :create, @product %>
         <%= link_to 'Add New Offered product', new_product_path, class: "btn btn-default" %>
-      <%end %>
   <% end %>
 
 

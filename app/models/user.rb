@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   
   has_many :services
   has_many :appointments
+
+  def title
+    email
+  end
 end
