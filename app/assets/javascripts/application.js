@@ -10,15 +10,20 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery-ui
-//= require bootstrap-datepicker
-//= require bootstrap-datepicker/core
-//= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
-//= require bootstrap-datepicker/locales/bootstrap-datepicker.fr.js
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+
+//= require bootstrap-sprockets
+//= require moment
+//= require moment/hu
+//= require bootstrap-datetimepicker
+//= require pickers
+//= require turbolinks
 //= require_tree .
+
+
+
 $(document).ready(function(){
 	setTimeout(function(){
 		$('#notice_wrapper').fadeOut("slow", function(){

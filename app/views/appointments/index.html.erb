@@ -7,10 +7,11 @@
     <% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a %>
     <%= link_to "Previous Month", start_date: date_range.first - 1.day, class: "btn btn-default" %> ||
     <%= link_to "Next Month", start_date: date_range.last + 1.day, class: "btn btn-primary", class: "btn btn-default" %>
+    <%= link_to 'Book Appointment', new_appointment_path, class: "btn btn-default", style: "float:right;" %>
         <h3><%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %></h3>
         <table class="table table-hover"> 
         
-          <%= link_to 'Book Appointment', new_appointment_path, class: "btn btn-default" %>
+          
       
           <thread>
             <tr>  

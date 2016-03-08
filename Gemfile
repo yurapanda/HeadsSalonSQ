@@ -7,6 +7,8 @@ gem 'rails', '4.2.5.1'
 gem 'sqlite3'
 gem "cancan"
 gem 'rails_admin'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -30,6 +32,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 gem "paperclip", "~> 4.3"
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,18 +1,10 @@
-
 <div class="container">
-  <h2> Our Staff</h2>
-  <% if can? :create, @staff %>
-   
-        <%= link_to 'Add New Salon Employee', new_staff_path, class: "btn btn-default" %>
-        <br>
-        <br>
-  
-  <% end %>
-
-
-
-
-      
+  <p class=""><h2 class="">Our Staff
+ <% if can? :create, @staff %>
+      <%= link_to 'Add New Staff', new_staff_path, class: "btn btn-default", style: "float:right;" %>
+    <%end %>
+    </h2>
+</p>
     <div class="row">
 
       <% @staffs.each do |staff| %>

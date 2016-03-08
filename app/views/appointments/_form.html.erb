@@ -16,10 +16,10 @@
 
 <div class="input-group date">
 
-<%= f.input :date, label: 'Date', input_html: {class: 'form-control'} %>
+<%= f.input :date, :as => :date_picker, disabled: false %>
 
+<%= f.input :time, :as => :time_picker %>
 
-<%= f.input :time, label: 'Time', input_html: {class: 'col-md-9'} %>
 </div>
 <br>
 <%= f.button :submit, class: 'btn btn-primary' %>

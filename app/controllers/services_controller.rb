@@ -11,12 +11,10 @@ class ServicesController < ApplicationController
     @user = current_user
   end
 
-  def home
-    @user = current_user
-  end
   # GET /services/1
   # GET /services/1.json
   def show
+    @user = current_user
   end
 
   # GET /services/new

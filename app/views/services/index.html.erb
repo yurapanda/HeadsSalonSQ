@@ -1,9 +1,10 @@
 <div class="container">
-  <h2> Our Services</h2>
+  <p class=""><h2 class="">Services
  <% if can? :create, @service %>
-      <%= link_to 'Add New Offered Service', new_service_path, class: "btn btn-default" %>
+      <%= link_to 'Add New Offered Service', new_service_path, class: "btn btn-default", style: "float:right;" %>
     <%end %>
-
+    </h2>
+</p>
 
 <table class="table table-striped">
  
@@ -11,6 +12,7 @@
       <th> </th>
       <th>Name</th>
       <th>Price</th>
+      <th>Category</th>
       
     </tr>
 
@@ -19,6 +21,7 @@
         <td> <%= image_tag service.image.url(:thumb), class: "image-rounded"%></td>
         <td><%= link_to service.name, service%></td>
         <td>Php <%= service.price %>0</td>
+        <td> <%= service.category.name %></td>
       <% if can? :update, @service %>
           <td><%= link_to 'Edit', edit_service_path(service) %></td>
       <% end %>

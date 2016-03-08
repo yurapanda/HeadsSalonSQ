@@ -1,8 +1,10 @@
 <div class="container">
-  <h2> Our Products</h2>
-  <% if can? :create, @product %>
-        <%= link_to 'Add New Offered product', new_product_path, class: "btn btn-default" %>
-  <% end %>
+  <p class=""><h2 class="">Product
+ <% if can? :create, @product %>
+      <%= link_to 'Add New Offered Product', new_product_path, class: "btn btn-default", style: "float:right;" %>
+    <%end %>
+    </h2>
+</p>
 
 
   <table class="table table-striped">
@@ -11,6 +13,7 @@
         <th> </th>
         <th>Name</th>
         <th>Price</th>
+        <th>Category </th>
         <th>Availability </th>
         
       </tr>
@@ -20,6 +23,7 @@
           <td> <%= image_tag product.image.url(:thumb), class: "image-rounded"%></td>
           <td><%= link_to product.name, product%></td>
           <td>Php <%= product.price %>0</td>
+          <td><%= product.category.name %> </td>
           <td><% if product.availability == true %>
                     <font color="green">Available</font>
                      <%else %>

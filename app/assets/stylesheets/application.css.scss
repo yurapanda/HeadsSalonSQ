@@ -9,14 +9,14 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *= require bootstrap-datepicker3 
+ *= require bootstrap-datetimepicker 
  *= require jquery-ui
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'bootstrap-datetimepicker';
 
 $white: #FFFFFF;
 $highlight: #2C6086;
@@ -25,9 +25,7 @@ $dark: #22292e;
 
 
 
-* {
-  border-radius: 0 !important;
-}
+
 
 .navbar {
    -webkit-box-shadow: 0 8px 6px -6px #999;
@@ -39,9 +37,7 @@ $dark: #22292e;
 
 
 
-.navbar-default .navbar-nav > li > a {
-    color: #FFFFFF;
-}
+
 #brand {
   float: left;
   max-height: 5px;
@@ -272,22 +268,13 @@ li.userlog{
 .navbar-default{
   box-shadow: none;
   border: none !important;
-  li{
-    font-weight: 700;
-    letter-spacing: .1rem;
-    margin-left: -2rem;
-  }
+
 
 }
 
 .navbar-brand>img {
     display: block;
     max-width: 20rem;
-}
-
-nav.navbar.navbar-default {
-    height: 7.5rem;
-
 }
 
 
@@ -301,7 +288,7 @@ navbar-default .navbar-nav>li>a {
     line-height: 4rem;
     letter-spacing: .1rem;
     font-weight: 200;
-    margin-right: 2rem;
+    margin-left: 1rem;
 
 }
 
@@ -311,3 +298,10 @@ navbar-default .navbar-nav>li>a {
 }
 center the menus
 */
+
+
+@media (max-width: 768px){
+navbar-header {
+    min-height: 150px !important;
+    }
+}
