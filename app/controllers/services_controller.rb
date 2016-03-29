@@ -7,7 +7,7 @@ class ServicesController < ApplicationController
  
 
   def index
-    @services = Service.all
+    @services = Service.paginate(:page => params[:page], :per_page => 5)
     @user = current_user
   end
 

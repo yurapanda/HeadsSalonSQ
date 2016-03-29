@@ -6,7 +6,7 @@
     </h2>
 </p>
     <div class="row">
-
+<%= will_paginate @staff, renderer: BootstrapPagination::Rails %>
       <% @staffs.each do |staff| %>
       <div class="staff-panel">
         <div class="col-sm-6 col-md-5 col-lg-4">

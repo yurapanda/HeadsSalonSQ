@@ -1,3 +1,9 @@
+<%= form_tag products_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 <div class="container">
   <p class=""><h2 class="">Product
  <% if can? :create, @product %>
@@ -11,10 +17,10 @@
    
       <tr>
         <th> </th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Category </th>
-        <th>Availability </th>
+        <th><%= link_to "Name",       :sort => "name" %></th>
+        <th><%= link_to "Price",      :sort => "price" %></th>
+        <th><%= link_to "Category",   :sort => "category.id"%> </th>
+        <th><%= link_to "Availability",:sort => "availability"%> </th>
         
       </tr>
 
@@ -27,7 +33,7 @@
           <td><% if product.availability == true %>
                     <font color="green">Available</font>
                      <%else %>
-              <font color="green">Not Available</font>
+              <font color="red">Not Available</font>
               <% end %></td>
       <% if can? :update, @product %>
           <td><%= link_to 'Edit', edit_product_path(product) %></td>
@@ -37,7 +43,7 @@
       <% end %>
         </tr>
       <% end %>
-
+    <%= will_paginate @product, renderer: BootstrapPagination::Rails %>
   </table>
 
   <br>

@@ -21,6 +21,9 @@ gem 'devise', '~> 3.5', '>= 3.5.5'
 gem 'bootstrap-sass'
 gem 'bootstrap-datepicker-rails', '~> 1.5'
 gem 'jquery-ui-rails'
+#gem 'sunspot_rails'
+#gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
+gem 'will_paginate-bootstrap'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
